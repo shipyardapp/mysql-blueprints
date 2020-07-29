@@ -97,12 +97,19 @@ def create_csv(query, db_connection, destination_file_path, file_header=True):
     i = 1
     for chunk in pd.read_sql_query(query, db_connection, chunksize=10000):
         if i == 1:
-            chunk.to_csv(destination_file_path, mode='a',
-                         header=file_header, index=False)
+            chunk.to_csv(
+                destination_file_path,
+                mode='a',
+                header=file_header,
+                index=False)
         else:
-            chunk.to_csv(destination_file_path, mode='a',
-                         header=False, index=False)
+            chunk.to_csv(
+                destination_file_path,
+                mode='a',
+                header=False,
+                index=False)
         i += 1
+    print(f'Successfully stored results as {destination_full_path}.')
     return
 
 
