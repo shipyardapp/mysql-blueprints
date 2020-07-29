@@ -109,7 +109,7 @@ def create_csv(query, db_connection, destination_file_path, file_header=True):
                 header=False,
                 index=False)
         i += 1
-    print(f'Successfully stored results as {destination_full_path}.')
+    print(f'Successfully stored results as {destination_file_path}.')
     return
 
 
