@@ -41,7 +41,6 @@ def get_args():
         dest='db_connection_url',
         required=False)
     args = parser.parse_args()
-    args = parser.parse_args()
 
     if not args.db_connection_url and not (
             args.host or args.database or args.username) and not os.environ.get('DB_CONNECTION_URL'):
@@ -113,7 +112,7 @@ def upload_data(source_full_path, table_name, insert_method, db_connection):
     for chunk in pd.read_csv(source_full_path, chunksize=10000):
         chunk.to_sql(table_name, con=db_connection, index=False,
                      if_exists=insert_method, chunksize=10000)
-    print(f'{source_full_path} successfully upload to {table_name}.')
+    print(f'{source_full_path} successfully uploaded to {table_name}.')
 
 
 def main():
